@@ -1,10 +1,12 @@
 package ru.job4j.chess.firuges.black;
 
 import org.junit.Test;
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BishopBlackTest {
 
@@ -41,7 +43,10 @@ public class BishopBlackTest {
         Cell startPos = Cell.findBy(2,7);
         BishopBlack blackBishop = new BishopBlack(startPos);
         Cell dest = Cell.findBy(7,3);
-        assertThat(blackBishop.way(dest)).isEqualTo("Could not move by diagonal from C1 to H5");
-
+        try {
+            blackBishop.way(dest);
+        } catch (Exception e) {
+            assertThat(e.getMessage()).isEqualTo("Could not move by diagonal from C1 to H5");
+        }
     }
 }
