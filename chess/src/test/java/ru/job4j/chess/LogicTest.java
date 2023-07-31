@@ -25,11 +25,11 @@ public class LogicTest {
     public void whenMoveThenOccupiedCellException()
             throws OccupiedCellException, ImpossibleMoveException, FigureNotFoundException {
         Logic logic = new Logic();
-        Cell startPos = Cell.findBy(2,7);
+        Cell startPos = Cell.findBy(2, 7);
         BishopBlack blackBishop = new BishopBlack(startPos);
-        Cell dest = Cell.findBy(7,2);
+        Cell dest = Cell.findBy(7, 2);
         logic.add(blackBishop);
-        logic.add(new PawnBlack(Cell.findBy(4,5)));
+        logic.add(new PawnBlack(Cell.findBy(4, 5)));
         try {
             logic.move(startPos, dest);
         } catch (Exception e) {
@@ -41,9 +41,9 @@ public class LogicTest {
     public void whenMoveThenImpossibleMoveException()
             throws OccupiedCellException, ImpossibleMoveException, FigureNotFoundException {
         Logic logic = new Logic();
-        Cell startPos = Cell.findBy(2,7);
+        Cell startPos = Cell.findBy(2, 7);
         BishopBlack blackBishop = new BishopBlack(startPos);
-        Cell dest = Cell.findBy(1,3);
+        Cell dest = Cell.findBy(1, 3);
         logic.add(blackBishop);
         try {
             logic.move(startPos, dest);

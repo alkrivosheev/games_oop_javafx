@@ -12,24 +12,24 @@ public class BishopBlackTest {
 
     @Test
     public void position() {
-        Cell startPos = Cell.findBy(2,0);
+        Cell startPos = Cell.findBy(2, 0);
         BishopBlack blackBishop = new BishopBlack(startPos);
         assertThat(blackBishop.position().name()).isEqualTo("C8");
     }
 
     @Test
     public void copy() {
-        Cell startPos = Cell.findBy(2,0);
+        Cell startPos = Cell.findBy(2, 0);
         BishopBlack blackBishop = new BishopBlack(startPos);
-        Cell dest = Cell.findBy(4,2);
+        Cell dest = Cell.findBy(4, 2);
         assertThat(blackBishop.copy(dest).position().name()).isEqualTo("E6");
     }
 
     @Test
     public void waySuccessD2E3F4G5() {
-        Cell startPos = Cell.findBy(2,7);
+        Cell startPos = Cell.findBy(2, 7);
         BishopBlack blackBishop = new BishopBlack(startPos);
-        Cell dest = Cell.findBy(6,3);
+        Cell dest = Cell.findBy(6, 3);
         Cell[] steps = blackBishop.way(dest);
         String strSteps = "";
         for (Cell step : steps) {
@@ -38,11 +38,12 @@ public class BishopBlackTest {
         assertThat(strSteps).isEqualTo("D2E3F4G5");
 
     }
+
     @Test
     public void wayException() {
-        Cell startPos = Cell.findBy(2,7);
+        Cell startPos = Cell.findBy(2, 7);
         BishopBlack blackBishop = new BishopBlack(startPos);
-        Cell dest = Cell.findBy(7,3);
+        Cell dest = Cell.findBy(7, 3);
         try {
             blackBishop.way(dest);
         } catch (Exception e) {
